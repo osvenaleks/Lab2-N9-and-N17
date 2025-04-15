@@ -3,15 +3,33 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <stdint>
 #include <cstdlib>
-#include <cstime>
+#include <ctime>
+#include <cstdint>
 
-void FillArrayWithRandomNumbers(int64_t* arr, int32_t arrSize);
+// Общие функции
+void InputArrSize(int32_t maxSize, int32_t& arrSize);
+
+// Выбор метода заполнения
+void ChooseMethod(int64_t* arr, int32_t arrSize);
+void ChooseMethod(double* arr, int32_t arrSize);
+
+// Работа с массивом double
+void FillArrayWithRandomNumbersD(double* arr, int32_t arrSize);
+void InputElementsInArray(double* arr, int32_t arrSize);
 void InputP(double& P);
-void InputElementsInArray(double* arr, int32_t MaxSize);
-void InputArrSize(int32_t MaxSize, int32_t n);
-int32_t LastNegative(int32_t arrSize, double arr[]);
+int32_t LastNegative(double* arr, int32_t arrSize);
+int32_t CountOfElementsLowerThanP(double* arr, int32_t arrSize, double P);
 int32_t SumIntNumAfterLastNegative(int32_t arrSize, double arr[]);
+void LessThenPSort(double* arr, int32_t arrSize, double P);
+
+// Работа с массивом int64_t (натуральные числа)
+void InputElementsInArray(int64_t* arr, int32_t arrSize);
+void FillArrayWithRandomNumbers(int64_t* arr, int32_t arrSize);
+void InputP(int32_t& P);
+void MoreThenPSort(int64_t* arr, int32_t arrSize, int32_t P);
+void MaxNumsIndex(int64_t* arr, int32_t arrSize);
+void SelectionSort(int64_t* arr, int32_t arrSize);
+int32_t MinNaturalNumberNotInArray(int64_t* arr, int32_t arrSize);
 
 #endif
