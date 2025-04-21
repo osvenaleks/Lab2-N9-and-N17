@@ -1,4 +1,4 @@
-// Программа для нахождения суммы цифр числа
+
 #include <iostream>
 #include <cstdint>
 
@@ -20,14 +20,12 @@ int main() {
     return 0;
 }
 
-// Функция для ввода числа
 void InputNumber(int64_t& number) {
     std::cout << "Enter a number: ";
     std::cin >> number;
    
 }
 
-// Рекурсивная функция для нахождения суммы цифр числа
 int64_t SumOfDigits(int64_t number) {
     
     if (number == 0) {
