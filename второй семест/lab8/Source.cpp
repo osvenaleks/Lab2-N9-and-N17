@@ -1,6 +1,34 @@
 #include "Header.h"
 
 //file and Input
+void CheckIfstreamFile(std::ifstream file) {
+	try {
+		if (!file.is_open()) {
+			throw std::invalid_argument("file must be open");
+		}
+		else if (file.bad()) {
+			throw std::invalid_argument("unrecoverable stream error(possibly hardware - related)");
+		}
+		else if (file.fail()) {
+			throw std::invalid_argument("input/output operation failed (possibly wrong file format)");
+		}
+	}
+	catch (std::invalid_argument& e) {
+		std::cerr << "Error: " << e.what();
+	}
+}
+
+void CheckOfstreamFile(std::ofstream file) {
+	try {
+		if (!file.is_open()) {
+			throw std::invalid_argument("file must be open");
+		}
+	}
+	catch (std::invalid_argument& e) {
+		std::cerr << "Error: " << e.what();
+	}
+}
+
 void InputArrSizeFromConsole(int32_t& arrSize) {
 	try {
 		std::cout << "input arr size\n";
@@ -31,7 +59,7 @@ void FindArrSizeFromFile(std::ifstream& file, int32_t& arrSize) {
 
 		}
 		catch (const std::out_of_range&) {
-			std::cerr << "your namber out of range";
+			std::cerr << "your number out of range";
 			std::exit(1);
 		}
 	}
@@ -63,7 +91,7 @@ bool IsValidDouble(double& number,const std::string token) {
     }
 }
 
-void InputArrfromFile(std::ifstream& file, double*& arr,int32_t arrSize) {
+void InputArrfromFile(std::ifstream& file, double* arr,int32_t arrSize) {
 	std::string token;
 	double num = {};
 	int32_t i = {};
@@ -75,28 +103,28 @@ void InputArrfromFile(std::ifstream& file, double*& arr,int32_t arrSize) {
 	}
 }
 
-void InputArrfromConsole(double*& arr, int32_t arrSize) {
+void InputArrfromConsole(double* arr, int32_t arrSize) {
 	std::cout << "Input elements im arr\n";
 	for (int32_t i = {};i < arrSize;++i) {
 		std::cin >> arr[i];
 	}
 }
 
-void OutputArrInConsole(double*& arr, int32_t arrSize) {
+void OutputArrInConsole(double* arr, int32_t arrSize) {
 	std::cout << "Your sorted array:\n";
 	for (int32_t i = {};i < arrSize;++i) {
 		std::cout << arr[i] << '\n';
 	}
 }
 
-void OutputArrInFile(std::ofstream& file,double*& arr, int32_t arrSize) {
+void OutputArrInFile(std::ofstream& file,double* arr, int32_t arrSize) {
 	for (int32_t i = {}; i < arrSize; ++i) {
 		file << arr[i];
 		if (i < arrSize - 1) {
 			file << " ";
 		}
 	}
-	std::cout << "Arr record in fale outText.txt\n";
+	std::cout << "Arr record in file outText.txt\n";
 }
 
 void ChooseHowFillArr(int32_t & numOfVariant) {
@@ -106,7 +134,7 @@ void ChooseHowFillArr(int32_t & numOfVariant) {
 	try {
 		std::cin >> numOfVariant;
 		if (numOfVariant != 1 && numOfVariant != 2) {
-			throw std::invalid_argument("Incorect chose,must be 1 or 2");
+			throw std::invalid_argument("Incorrect chose,must be 1 or 2");
 		}
 	}
 	catch (std::invalid_argument& e) {
@@ -124,7 +152,7 @@ void FindArrSize(std::ifstream& file,int32_t& arrSize, int32_t numOfVariant) {
 	}
 }
 
-void FillArr(std::ifstream& file,double*& arr, int32_t arrSize, int32_t numOfVariant) {
+void FillArr(std::ifstream& file,double* arr, int32_t arrSize, int32_t numOfVariant) {
 	if (numOfVariant == 1) {
 		InputArrfromConsole(arr, arrSize);
 	}
@@ -160,7 +188,7 @@ void ChooseTipeOfSort(int32_t& numOfVariant) {
 	try {
 		std::cin >> numOfVariant;
 		if (numOfVariant != 1 && numOfVariant != 2) {
-			throw std::invalid_argument("Incorect chose,must be 1 or 2");
+			throw std::invalid_argument("Incorrect chose,must be 1 or 2");
 		}
 	}
 	catch (std::invalid_argument& e) {

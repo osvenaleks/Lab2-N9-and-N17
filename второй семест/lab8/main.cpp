@@ -2,7 +2,9 @@
 
 int main() {
     std::ifstream file("text.txt");
+    CheckIfstreamFile(file);
     std::ofstream outFile ("outText.txt");
+    CheckIfstreamFile(outFile);
     int32_t arrSize = {};
     int32_t numOfVariant = {};
     int32_t outputNumOfVariant = {};
