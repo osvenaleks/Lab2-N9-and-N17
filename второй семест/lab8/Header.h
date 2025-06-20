@@ -10,17 +10,19 @@
 #include <sstream>
 
 //file and other
+void CheckIfstreamFile(std::ifstream file);
+void CheckOfstreamFile(std::ifstream file);
 bool IsValidDouble(double& number, const std::string token);
-void InputArrfromFile(std::ifstream& file, double*& arr, int32_t arrSize);
+void InputArrfromFile(std::ifstream& file, double* arr, int32_t arrSize);
 void InputArrSizeFromConsole(int32_t& arrSize);
-void InputArrfromConsole(double*& arr, int32_t arrSize);
+void InputArrfromConsole(double* arr, int32_t arrSize);
 void ChooseHowFillArr(int32_t & numOfVariant);
 void FindArrSize(std::ifstream& file, int32_t& arrSize, int32_t numOfVariant);
-void FillArr(std::ifstream& file, double*& arr, int32_t arrSize, int32_t numOfVariant);
+void FillArr(std::ifstream& file, double* arr, int32_t arrSize, int32_t numOfVariant);
 void ChooseSort(int32_t& numOfVariant);
 void ChooseTipeOfSort(int32_t& numOfVariant);
-void OutputArrInConsole(double*& arr, int32_t arrSize);
-void OutputArrInFile(std::ofstream& file, double*& arr, int32_t arrSize);
+void OutputArrInConsole(double* arr, int32_t arrSize);
+void OutputArrInFile(std::ofstream& file, double* arr, int32_t arrSize);
 void SortArr(double* arr, int32_t arrSize, int32_t& numOfVariant);
 void ChooseOutput(int32_t& numOfVariant);
 void OutputArr(int32_t& numOfVariant, std::ofstream & outFile, double* arr, int32_t arrSize);
